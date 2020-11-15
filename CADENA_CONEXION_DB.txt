@@ -1,0 +1,11 @@
+db.createUser(
+  {
+    user: "twittor_user",
+    pwd: "twittor_pass",
+    roles: [ { role: "readWrite", db: "twittor" } ]
+  }
+);
+
+
+mongodb://twittor_user:twittor_pass@localhost:20017/twittor
+
