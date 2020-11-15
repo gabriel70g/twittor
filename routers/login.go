@@ -10,6 +10,7 @@ import (
 	"github.com/gabriel70g/twittor/models"
 )
 
+/*Login Login de usuario */
 func Login(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("content-type", "aplication/json")
 

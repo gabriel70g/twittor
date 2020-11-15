@@ -8,7 +8,7 @@ import (
 	"github.com/gabriel70g/twittor/models"
 )
 
-/*crea en la BD el registro de usuario*/
+/*Registro crea en la BD el registro de usuario */
 func Registro(w http.ResponseWriter, r *http.Request) {
 	var t models.Usuario
 	err := json.NewDecoder(r.Body).Decode(&t)

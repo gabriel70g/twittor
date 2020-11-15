@@ -12,10 +12,10 @@ import (
 /*Email valor usado en todos los endpoints*/
 var Email string
 
-/*ID es el id devuelto del modelo*/
+/*IDUsuario ID es el id devuelto del modelo*/
 var IDUsuario string
 
-/*Proceso token para extraer sus valors*/
+/*ProcesoToken Proceso token para extraer sus valors */
 func ProcesoToken(tk string) (*models.Claim, bool, string, error) {
 	miClave := []byte("La clave para el proyecto de Twittot")
 	claims := &models.Claim{}
