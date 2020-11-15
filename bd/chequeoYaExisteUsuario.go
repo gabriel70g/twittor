@@ -14,7 +14,7 @@ func ChequeoYaExisteUsuario(email string) (models.Usuario, bool, string) {
 	defer cancel()
 
 	db := MongoCN.Database("twittor")
-	col := db.Collection(("usuarios"))
+	col := db.Collection(("users"))
 
 	condicion := bson.M{"email": email}
 	var resultado models.Usuario
