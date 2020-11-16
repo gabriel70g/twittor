@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-/*Busco perril*/
+/*BuscoPerfil Busco perril*/
 func BuscoPerfil(ID string) (models.Usuario, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	db := MongoCN.Database("twittor")
