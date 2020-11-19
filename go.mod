@@ -9,4 +9,5 @@ require (
 	github.com/rs/cors v1.7.0
 	go.mongodb.org/mongo-driver v1.4.3
 	golang.org/x/crypto v0.0.0-20201112155050-0c6587e931a9
+	golang.org/x/tools v0.0.0-20190531172133-b3315ee88b7d
 )

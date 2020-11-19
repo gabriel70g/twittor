@@ -15,7 +15,7 @@ func InsertoRelacion(t models.Relacion) (bool, error) {
 	db := MongoCN.Database("twittor")
 	col := db.Collection("relation")
 
-	_, err := col.InserOne(ctx, t)
+	_, err := col.InsertOne(ctx, t)
 	if err != nil {
 		return false, err
 	}

@@ -11,14 +11,14 @@ import (
 )
 
 /*LeoTweets de un usuario */
-func LeoTweets(ID string, pagina int64) ([]*models.DveulvoTweets, bool) {
+func LeoTweets(ID string, pagina int64) ([]*models.DevuelvoTweets, bool) {
 
 	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 	db := MongoCN.Database("twittor")
 	col := db.Collection("tweet")
 
-	var resultados []*models.DveulvoTweets
+	var resultados []*models.DevuelvoTweets
 
 	condicion := bson.M{
 		"userid": ID,
@@ -36,7 +36,7 @@ func LeoTweets(ID string, pagina int64) ([]*models.DveulvoTweets, bool) {
 	}
 	for cursor.Next(context.TODO()) {
 
-		var registro models.DveulvoTweets
+		var registro models.DevuelvoTweets
 		err := cursor.Decode(&registro)
 		if err != nil {
 			return resultados, false
