@@ -1,6 +1,7 @@
 package routers
 
 import (
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -21,9 +22,13 @@ func ObtenerBanner(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	openFile, err := os.Open("/uploads/banners/" + perfil.Banner)
+	var mipath, _ = os.Getwd()
+
+	openFile, err := os.Open(mipath + "/uploads/banners/" + perfil.Banner)
 	if err != nil {
-		http.Error(w, "Imagen no encontrada", http.StatusBadRequest)
+		fmt.Println(err)
+		fmt.Println(mipath + "/uploads/banners/")
+		http.Error(w, "Imagen no encontrada"+err.Error(), http.StatusBadRequest)
 		return
 	}
 

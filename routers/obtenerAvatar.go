@@ -4,6 +4,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gabriel70g/twittor/bd"
 )
@@ -20,8 +21,13 @@ func ObtenerAvatar(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Usuario no encontrado", http.StatusBadRequest)
 		return
 	}
+	if len(strings.TrimSpace(perfil.Avatar)) == 0 {
+		http.Error(w, "El usuario no tiene avatar", http.StatusBadRequest)
+		return
+	}
+	var mipath, _ = os.Getwd()
 
-	openFile, err := os.Open("/uploads/avatars/" + perfil.Avatar)
+	openFile, err := os.Open(mipath + "/uploads/avatars/" + perfil.Avatar)
 	if err != nil {
 		http.Error(w, "Imagen no encontrada", http.StatusBadRequest)
 		return
@@ -29,6 +35,6 @@ func ObtenerAvatar(w http.ResponseWriter, r *http.Request) {
 
 	_, err = io.Copy(w, openFile)
 	if err != nil {
-		http.Error(w, "Error al copiar la imagen", http.StatusBadRequest)
+		http.Error(w, "Error al copiar la imagen"+err.Error(), http.StatusBadRequest)
 	}
 }
